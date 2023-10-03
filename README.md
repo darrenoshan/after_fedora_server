@@ -11,6 +11,7 @@ Fedora is one of the most popular Linux distributions. https://en.wikipedia.org/
 
 run the following code in a terminal with root permission and wait for it to stop :
 ```
+sudo dnf install git -y 
 cd ~
 git clone https://github.com/darrenoshan/fedora_server_post_install.git 
 cd fedora_server_post_install/
