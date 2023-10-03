@@ -3,7 +3,7 @@
 
 #------------------------PACKAGES
 # HARDWARE
-CMD[0]="acpid inxi iotop kernel-devel kernel-headers lshw"
+CMD[0]="acpid inxi iotop kernel-devel kernel-headers lshw open-vm-tools"
 # SYSTEMADMIN
 CMD[1]="ansible moby-engine podman podman-compose podman-tui sen"
 # NETWORK
