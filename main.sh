@@ -19,7 +19,6 @@ source files/02*.source   >> $LOGFILE
 source files/03*.source   >> $LOGFILE
 source files/04*.source   >> $LOGFILE
 source files/05*.source   >> $LOGFILE
-source files/06*.source   >> $LOGFILE
 
  #-------------------------------------------------
 run_00(){
