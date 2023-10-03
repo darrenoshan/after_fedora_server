@@ -1,0 +1,37 @@
+#!/usr/bin/bash
+#------------------------
+
+#------------------------PACKAGES
+func_post_sweep(){
+    mkdir -p /root/.ssh/
+    touch /root/.ssh/{authorized_keys,config}
+    find /root/* -type f -exec chmod 600 {} \;
+    find /root/* -type d -exec chmod 700 {} \;
+
+    DOCKERDAEMON="/etc/docker"
+    mkdir -p $DOCKERDAEMON
+    echo '{' > $DOCKERDAEMON/daemon.json
+    echo '"bip" : "192.168.255.1/24"' >> $DOCKERDAEMON/daemon.json
+    echo '}' >> $DOCKERDAEMON/daemon.json
+
+    systemctl daemon-reload
+    rpm --rebuilddb 
+    systemctl enable --now firewalld sysstat vnstat docker vmtoolsd chronyd crond sshd
+    sed -i /etc/vimrc -e "s/set hlsearch/set nohlsearch/g"
+    sed 's/^# %wheel/%wheel/' -i /etc/sudoers
+
+    timedatectl set-ntp true
+}
+func_disable_localdns(){
+    runstatus="Running Function: 'func_disable_localdns' "
+    systemctl disable systemd-resolved
+    systemctl stop systemd-resolved
+    unlink /etc/resolv.conf 
+    echo -e "[main]\ndns=none" > /etc/NetworkManager/conf.d/90-dns-none.conf
+    echo "options timeout:1 attempts:10 rotate" >  /etc/resolv.conf
+    echo "nameserver 8.8.8.8" >>  /etc/resolv.conf
+    echo "nameserver 4.2.2.4" >> /etc/resolv.conf
+    echo "nameserver 1.1.1.1" >> /etc/resolv.conf
+    echo "nameserver 9.9.9.9" >> /etc/resolv.conf
+    systemctl reload NetworkManager
+}

@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+#------------------------
+
+#------------------------PACKAGES
+# HARDWARE
+CMD[0]="acpid inxi iotop kernel-devel kernel-headers lshw"
+# SYSTEMADMIN
+CMD[1]="ansible moby-engine podman podman-compose podman-tui sen"
+# NETWORK
+CMD[2]="aria2 axel bwm-ng chrony cronie dnsperf dnstop firewalld ftp GeoIP hping3 iftop iperf iptraf-ng iputils lftp lynx macchanger \
+        mtr nc nethogs netstat-nat net-tools NetworkManager-tui ngrep nmap ntpcheck ntpsec tcpdump telnet traceroute sshfs \
+        sshuttle vnstat wget whatmask whois wireguard-tools"
+# BASECORE
+CMD[5]="bash-completion bind-utils fdupes jdupes htop info mc mlocate mmv p7zip p7zip-plugins python3-pip policycoreutils-python-utils \
+        pwgen qrencode screen tmux unar unrar util-linux vim vim-ansible setroubleshoot-server sysstat"
+# DEVELOPMENT
+CMD[9]="clang cmake dialog figlet gcc git golang jq lolcat make python3-devel toilet xml2 yamllint shyaml"
+# PERSIAN
+CMD[10]="jcal"
+
+# ${CMD[@]}
+
+
