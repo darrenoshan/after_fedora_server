@@ -15,7 +15,8 @@ sudo dnf install git -y
 cd ~
 git clone https://github.com/darrenoshan/fedora_server_post_install.git 
 cd fedora_server_post_install/
-sudo bash main.sh normal 
+sudo bash main.sh normal &
+
 ```
 
 to read the live log, open another terminal/shell and run the following commands:
