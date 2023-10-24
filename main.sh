@@ -50,20 +50,31 @@ run_04(){
  }
 main_normal(){
     run_00
+    timeprint
     run_01
+    timeprint
     run_02
+    timeprint
     run_04
+    timeprint
  }
 main_force(){
     run_00
+    timeprint
     run_01
+    timeprint
     run_03
+    timeprint
     run_04
+    timeprint
  }
 func_update_upgrade(){
     func_dnf_conf
+    timeprint
     func_update
+    timeprint
     func_hw_update
+    timeprint
 }
 #
 
@@ -77,3 +88,4 @@ func_update_upgrade(){
     fi
     fi
 runstatus="finished"
+echo `timeprint` Finished running script.
