@@ -31,6 +31,9 @@ log(){
 printError(){
     echo -e `jdate +%Y/%m/%d-%H:%M:%S 2> /dev/null || date +%Y/%m/%d-%H:%M:%S `"  ===>  ""${BRed}" $1 "${CLEAR}" | tee -a $LOGFILE
  }
+timeprint(){
+    echo -n `date +"--- %Y/%m/%d %H:%M:%S --- "`
+ }
 check_rootrun(){
     if [ "$EUID" -ne 0 ]
         then printError "Please run as root"
